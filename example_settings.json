@@ -1,0 +1,56 @@
+{
+    "selection_criteria":{
+        "exe": "# your executable #",
+        "status": ["running", "sleeping", "disk-sleep"],
+        "user": "# your username #",
+        "max_run_time": 604800
+    },
+    "detailed_output":[
+        "exe",
+        "script",
+        "cpu_time",
+        "create_time",
+        "time_since_creation",
+        "time_active_ratio",
+        "pid",
+        "status",
+        "memory_percent",
+        "cpu_percent",
+        "memory_total"
+    ],
+    "finished_output":[
+        "pid",
+        "exe",
+        "script",
+        "time_since_creation",
+        "memory_total",
+        "time_active_ratio",
+        "cpu_time"
+    ],
+    "summary_output":[
+        "cpu_over_time",
+        "n_jobs_over_time",
+        "memory_over_time",
+        "ratio_status_running_over_time"
+    ],
+    "graphical_output":[
+        "cpu_over_time",
+        "n_jobs_over_time",
+        "memory_over_time",
+        "ratio_status_running_over_time",
+        "total_duration_of_jobs"
+    ],
+    "work_flow":{
+        "loop_interval": 60,
+        "cwd": "# your cwd #",
+        "with_detailed_output": true,
+        "folder_detailed_output": "detailed_data/",
+        "with_finished_jobs_output": true,
+        "folder_finished_jobs": "finished/",
+        "with_summary": true,
+        "folder_summary": "summary/",
+        "clean_up_at_new_day": false,
+        "with_graphical_output": true,
+        "folder_graphs": "graphs/"
+    }
+}
