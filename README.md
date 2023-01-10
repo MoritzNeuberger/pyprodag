@@ -13,3 +13,5 @@ An example for how one can structure a `settings.json` is given in `example_sett
 To run the tool as a daemon process, consider using `nohup` or `screen`.
 
 Under the `cwd` given in the settings, the tool will create new sub-folders in which the aggregated data is stored.
+
+For illustration, the `tol_colors.py` colour scheme definitions were used (see https://personal.sron.nl/~pault/).
