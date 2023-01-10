@@ -4,3 +4,5 @@ numpy
 pandas
 pre-commit
 psutil
+pytest
+pytest-cov

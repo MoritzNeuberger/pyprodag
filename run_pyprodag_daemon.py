@@ -1,5 +1,5 @@
 """
-A simple process data aggregator tool to monitor processes on your computer.
+A simple PYthon PROcess Data AGgregator tool to monitor processes on your computer.
 
 Copyright (c) 2022, Moritz Neuberger
 All rights reserved.

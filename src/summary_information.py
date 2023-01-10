@@ -6,25 +6,31 @@ from .file_system_interaction import *
 
 
 def extract_info_of_individual_file_from_summary(file, settings):
-    df = pd.read_json(file)
-    output = dict()
-    output["timestamp"] = extract_timestamp_from_file_name(file)
-    output["time"] = datetime.fromtimestamp(output["timestamp"])
-    if "cpu_over_time" in settings["summary_output"]:
-        output["cpu_over_time"] = df["cpu_percent"].sum() / 100.0
-    if "n_jobs_over_time" in settings["summary_output"]:
-        output["n_jobs_over_time"] = len(df)
-    if "memory_over_time" in settings["summary_output"]:
-        output["memory_over_time"] = df["memory_total"].sum() / 1024.0 / 1024.0 / 1024.0
-    if "ratio_status_running_over_time" in settings["summary_output"]:
-        output["ratio_status_running_over_time"] = len(
-            df[df["status"] == "running"]
-        ) / (
-            len(df[df["status"] == "running"])
-            + len(df[df["status"] == "sleeping"])
-            + len(df[df["status"] == "disk-sleep"])
-        )
-    return output
+    try:
+        df = pd.read_json(file)
+        output = dict()
+        output["timestamp"] = extract_timestamp_from_file_name(file)
+        output["time"] = datetime.fromtimestamp(output["timestamp"])
+        if "cpu_over_time" in settings["summary_output"]:
+            output["cpu_over_time"] = df["cpu_percent"].sum() / 100.0
+        if "n_jobs_over_time" in settings["summary_output"]:
+            output["n_jobs_over_time"] = len(df)
+        if "memory_over_time" in settings["summary_output"]:
+            output["memory_over_time"] = (
+                df["memory_total"].sum() / 1024.0 / 1024.0 / 1024.0
+            )
+        if "ratio_status_running_over_time" in settings["summary_output"]:
+            output["ratio_status_running_over_time"] = len(
+                df[df["status"] == "running"]
+            ) / (
+                len(df[df["status"] == "running"])
+                + len(df[df["status"] == "sleeping"])
+                + len(df[df["status"] == "disk-sleep"])
+            )
+        return output
+    except ValueError:
+        print(f"Error while opening file {file}. Will skip it.")
+        return dict()
 
 
 def generate_summary(folder_name, settings):
