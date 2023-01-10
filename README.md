@@ -1,7 +1,7 @@
 # pyprodag
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MoritzNeuberger/pyprodag/main.svg)](https://results.pre-commit.ci/latest/github/MoritzNeuberger/pyprodag/main)
 
-A simple process data aggregator tool to monitor processes on your computer. Created as an exercise to get back into Python.
+A simple PYthon PROcess Data AGgregator tool to monitor processes on your computer. Created as an exercise to get back into Python.
 
 # Usage
 The tool runs as a daemon process in the background of the system and monitores the processes according to a `settings.json` file.
