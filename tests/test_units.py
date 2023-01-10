@@ -14,7 +14,7 @@ from src.settings_manager import check_required_entries_in_settings, read_settin
 
 def test_root_info_extraction():
     settings = read_settings("tests/settings.json")
-    process = subprocess.Popen(["python", "tests/process_example.py", "-t", "5"])
+    process = subprocess.Popen(["python", "tests/process_example.py", "-t", "15"])
     time.sleep(3)
     df = get_info_of_running_processes(settings)
     assert len(df) > 0
@@ -24,7 +24,7 @@ def test_root_info_extraction():
 
 def test_find_finished_job():
     settings = read_settings("tests/settings.json")
-    process = subprocess.Popen(["python", "tests/process_example.py", "-t", "5"])
+    process = subprocess.Popen(["python", "tests/process_example.py", "-t", "15"])
     time.sleep(3)
     df_1 = get_info_of_running_processes(settings)
     time.sleep(5)
@@ -36,14 +36,14 @@ def test_find_finished_job():
 
 def test_find_two_finished_jobs():
     settings = read_settings("tests/settings.json")
-    process_1 = subprocess.Popen(["python", "tests/process_example.py", "-t", "5"])
-    process_2 = subprocess.Popen(["python", "tests/process_example.py", "-t", "10"])
+    process_1 = subprocess.Popen(["python", "tests/process_example.py", "-t", "10"])
+    process_2 = subprocess.Popen(["python", "tests/process_example.py", "-t", "30"])
     time.sleep(3)
     df_1 = get_info_of_running_processes(settings)
-    time.sleep(5)
+    time.sleep(10)
     df_2 = get_info_of_running_processes(settings)
     list_1 = check_for_finished_finished_jobs(df_2)
-    time.sleep(5)
+    time.sleep(20)
     df_3 = get_info_of_running_processes(settings)
     list_2 = check_for_finished_finished_jobs(df_3)
     assert len(list_2) > 0
