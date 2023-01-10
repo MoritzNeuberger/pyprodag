@@ -13,7 +13,7 @@ from src.settings_manager import check_required_entries_in_settings, read_settin
 
 
 def test_root_info_extraction():
-    settings = read_settings("settings.json")
+    settings = read_settings("./settings.json")
     process = subprocess.Popen(["python", "process_example.py", "-t", "5"])
     time.sleep(3)
     df = get_info_of_running_processes(settings)
@@ -23,7 +23,7 @@ def test_root_info_extraction():
 
 
 def test_find_finished_job():
-    settings = read_settings("settings.json")
+    settings = read_settings("./settings.json")
     process = subprocess.Popen(["python", "process_example.py", "-t", "5"])
     time.sleep(3)
     df_1 = get_info_of_running_processes(settings)
@@ -35,7 +35,7 @@ def test_find_finished_job():
 
 
 def test_find_two_finished_jobs():
-    settings = read_settings("settings.json")
+    settings = read_settings("./settings.json")
     process_1 = subprocess.Popen(["python", "process_example.py", "-t", "5"])
     process_2 = subprocess.Popen(["python", "process_example.py", "-t", "10"])
     time.sleep(3)
@@ -52,7 +52,7 @@ def test_find_two_finished_jobs():
 
 
 def test_read_test_settings():
-    settings = read_settings("settings.json")
+    settings = read_settings("./settings.json")
     assert settings == (
         settings
         | {
