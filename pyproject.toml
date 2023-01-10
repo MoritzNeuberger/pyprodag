@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pypocdag"
+name = "pyprodag"
 description = "A simple PYthon PROcess Data AGgregator tool to monitor processes on your computer."
 readme = "README.md"
 authors = [
@@ -11,6 +11,7 @@ authors = [
 ]
 license = { file = "LICENSE" }
 requires-python = ">=3.7"
+version = "0.1"
 
 dependencies = [
     "numpy>=1.13.3",
