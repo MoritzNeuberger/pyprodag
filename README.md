@@ -1,5 +1,5 @@
 # pyprodag
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MoritzNeuberger/pyprodag/main.svg)](https://results.pre-commit.ci/latest/github/MoritzNeuberger/pyprodag/main)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/MoritzNeuberger/pyprodag/main.svg)](https://results.pre-commit.ci/latest/github/MoritzNeuberger/pyprodag/main) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 A simple PYthon PROcess Data AGgregator tool to monitor processes on your computer. Created as an exercise to get back into Python.
 
