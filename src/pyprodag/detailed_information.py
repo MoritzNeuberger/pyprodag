@@ -12,25 +12,30 @@ set_of_pids = set()
 def check_whether_process_is_of_interest(process, settings):
     output = True
 
-    if "exe" in settings["selection_criteria"]:
-        output *= process.name() == settings["selection_criteria"]["exe"]
+    try:
 
-    if "status" in settings["selection_criteria"]:
-        output *= process.status() in settings["selection_criteria"]["status"]
+        if "exe" in settings["selection_criteria"]:
+            output *= process.name() == settings["selection_criteria"]["exe"]
 
-    if "user" in settings["selection_criteria"]:
-        output *= process.username() == settings["selection_criteria"]["user"]
+        if "status" in settings["selection_criteria"]:
+            output *= process.status() in settings["selection_criteria"]["status"]
 
-    if "users" in settings["selection_criteria"]:
-        output *= process.username() in settings["selection_criteria"]["users"]
+        if "user" in settings["selection_criteria"]:
+            output *= process.username() == settings["selection_criteria"]["user"]
 
-    if "max_run_time" in settings["selection_criteria"]:
-        output *= (
-            time.time() - process.create_time()
-            < settings["selection_criteria"]["max_run_time"]
-        )
+        if "users" in settings["selection_criteria"]:
+            output *= process.username() in settings["selection_criteria"]["users"]
 
-    return output
+        if "max_run_time" in settings["selection_criteria"]:
+            output *= (
+                time.time() - process.create_time()
+                < settings["selection_criteria"]["max_run_time"]
+            )
+
+        return output
+
+    except psutil.NoSuchProcess:
+        return False
 
 
 def generate_dict_with_info_detailed(process, settings):
@@ -82,7 +87,7 @@ def generate_dict_with_info_detailed(process, settings):
         return output_dict
 
     except psutil.NoSuchProcess:
-        return dict()
+        return output_dict
 
 
 def get_info_of_running_processes(settings):

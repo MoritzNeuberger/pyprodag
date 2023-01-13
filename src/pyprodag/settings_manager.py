@@ -25,7 +25,7 @@ def check_required_entries_in_settings(input):
             and not creq_v in input
         ):
             raise Exception(
-                "Conditionally required parameter {} not set. It is required to set when {} is given. Exit.".format(
+                "Conditionally required parameter {} not set. It is required when {} is given. Exit.".format(
                     creq_v, creq_k
                 )
             )
@@ -38,7 +38,9 @@ def check_required_entries_in_settings(input):
     conditional_work_flow_requirements = {
         "with_detailed_output": "folder_detailed_output",
         "with_finished_jobs_output": "folder_finished_jobs",
+        "with_finished_jobs_output": "summary_update_every_n_loops",
         "with_summary": "folder_summary",
+        "with_summary": "summary_update_every_n_loops",
         "with_graphical_output": "folder_graphs",
     }
     for creq_k, creq_v in conditional_work_flow_requirements.items():
@@ -48,7 +50,7 @@ def check_required_entries_in_settings(input):
             and not creq_v in input["work_flow"]
         ):
             raise Exception(
-                "Conditionally required parameter {} not set. It is required to set when {} is given. Exit.".format(
+                "Conditionally required parameter {} not set. It is required when {} is given. Exit.".format(
                     creq_v, creq_k
                 )
             )

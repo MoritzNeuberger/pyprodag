@@ -47,8 +47,10 @@
         "folder_detailed_output": "detailed_data/",
         "with_finished_jobs_output": true,
         "folder_finished_jobs": "finished/",
+        "finished_summary_update_interval": 300,
         "with_summary": true,
         "folder_summary": "summary/",
+        "summary_update_interval": 300,
         "clean_up_at_new_day": false,
         "with_graphical_output": true,
         "folder_graphs": "graphs/"

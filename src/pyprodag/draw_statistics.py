@@ -88,8 +88,8 @@ def draw_total_duration_of_jobs(finished_info, folder_name):
             column=["time_since_creation"],
             bins=10
             ** np.linspace(
-                np.log10(finished_info["time_since_creation"].min()),
-                np.log10(finished_info["time_since_creation"].max()),
+                np.log10(max(finished_info["time_since_creation"].min() - 5, 0.1)),
+                np.log10(finished_info["time_since_creation"].max() + 10),
                 50,
             ),
             color=cset.red,
@@ -98,6 +98,7 @@ def draw_total_duration_of_jobs(finished_info, folder_name):
         axis.set_xlabel("duration [s]")
         axis.set_ylabel("")
         axis.set_title("Total duration of jobs")
-        axis.set_xscale("log")
+        if (finished_info["time_since_creation"] > 0).any():
+            axis.set_xscale("log")
         plt.savefig(folder_name["graphs"] + "graph_total_duration_of_jobs.png")
         plt.close()

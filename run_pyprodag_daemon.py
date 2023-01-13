@@ -14,7 +14,7 @@ import os
 import daemon
 import lockfile
 
-from src.process_information_aggregator import main
+from src.pyprodag.process_information_aggregator import main
 
 argParser = argparse.ArgumentParser()
 argParser.add_argument(
