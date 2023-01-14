@@ -26,6 +26,11 @@ def check_whether_process_is_of_interest(process, settings):
         if "users" in settings["selection_criteria"]:
             output *= process.username() in settings["selection_criteria"]["users"]
 
+        if "users_black_list" in settings["selection_criteria"]:
+            output *= not (
+                process.username() in settings["selection_criteria"]["users_black_list"]
+            )
+
         if "max_run_time" in settings["selection_criteria"]:
             output *= (
                 time.time() - process.create_time()

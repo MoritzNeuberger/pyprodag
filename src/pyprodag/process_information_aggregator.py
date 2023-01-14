@@ -31,7 +31,7 @@ def single_loop_run(previous_data, settings, counter):
             file_name["finished"],
             settings,
         )
-        if counter == settings["summary_update_every_n_loops"]:
+        if counter == int(settings["work_flow"]["summary_update_every_n_loops"]):
             finished_info_summary = generate_finished_data_summary(
                 finished_info_individual
             )
@@ -45,18 +45,18 @@ def single_loop_run(previous_data, settings, counter):
     if (
         "with_summary" in settings["work_flow"]
         and settings["work_flow"]["with_summary"]
-        and counter == settings["summary_update_every_n_loops"]
+        and counter == int(settings["work_flow"]["summary_update_every_n_loops"])
     ):
         summary = generate_summary(folder_name, settings)
         write_summary_to_file(summary, folder_name["summary"], file_name["summary"])
 
+        if "with_graphical_output" in settings["work_flow"]:
+            draw_summary(summary, finished_info_individual, settings, folder_name)
+
     if "clean_up_at_new_day" in settings["work_flow"]:
         clean_up_at_new_day(folder_name)
 
-    if "with_graphical_output" in settings["work_flow"]:
-        draw_summary(summary, finished_info_individual, settings, folder_name)
-
-    if counter >= settings["summary_update_every_n_loops"]:
+    if counter >= int(settings["work_flow"]["summary_update_every_n_loops"]):
         counter = 0
     else:
         counter += 1

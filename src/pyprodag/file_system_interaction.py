@@ -77,6 +77,7 @@ def extract_timestamp_from_file_name(file_name):
     old_date_and_time = (
         file_name.rsplit(".", 1)[0].rsplit("/")[-1].replace("root_information_", "")
     )
+
     return int(
         time.mktime(
             datetime.strptime(
@@ -111,10 +112,13 @@ def generate_file_list_of_today(folder_name):
     for subdir, dirs, files in os.walk(base_folder):
         for file in files:
             total_file_name = subdir + "/" + file
-            get_date_of_file = date.fromtimestamp(
-                extract_timestamp_from_file_name(total_file_name)
-            )
-            get_date_of_today = date.today()
-            if get_date_of_file == get_date_of_today:
-                file_list.append(os.path.normpath(total_file_name))
+            try:
+                get_date_of_file = date.fromtimestamp(
+                    extract_timestamp_from_file_name(total_file_name)
+                )
+                get_date_of_today = date.today()
+                if get_date_of_file == get_date_of_today:
+                    file_list.append(os.path.normpath(total_file_name))
+            except ValueError:
+                pass
     return file_list
