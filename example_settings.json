@@ -3,6 +3,7 @@
         "exe": "# your executable #",
         "status": ["running", "sleeping", "disk-sleep"],
         "user": "# your username #",
+        "users_black_list": "root",
         "max_run_time": 604800
     },
     "detailed_output":[
