@@ -754,7 +754,6 @@ def tol_cset(colorset=None):
 
 
 def main():
-
     from matplotlib import pyplot as plt
 
     # Change default colorset (for lines) and colormap (for maps).

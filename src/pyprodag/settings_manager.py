@@ -8,7 +8,6 @@ hard_coded_settings = {
 
 
 def check_required_entries_in_settings(input):
-
     requirements_base = ["selection_criteria", "detailed_output", "work_flow"]
     for req in requirements_base:
         if not req in input:

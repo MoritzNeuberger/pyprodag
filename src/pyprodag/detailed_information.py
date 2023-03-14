@@ -13,7 +13,6 @@ def check_whether_process_is_of_interest(process, settings):
     output = True
 
     try:
-
         if "exe" in settings["selection_criteria"]:
             output *= process.name() == settings["selection_criteria"]["exe"]
 
@@ -47,7 +46,6 @@ def generate_dict_with_info_detailed(process, settings):
     output_dict = dict()
 
     try:
-
         if "exe" in settings["detailed_output"] and process:
             output_dict["exe"] = process.name()
 
