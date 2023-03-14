@@ -15,7 +15,6 @@ cset = tol_cset("high-contrast")
 
 
 def draw_summary(summary, finished_info, settings, folder_name):
-
     if "cpu_over_time" in settings["graphical_output"]:
         draw_cpu_over_time(summary, folder_name)
 

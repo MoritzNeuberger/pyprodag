@@ -6,7 +6,6 @@ from . import *
 
 
 def single_loop_run(previous_data, settings, counter):
-
     folder_name, file_name = generate_folder_and_file_name(settings)
 
     data = get_info_of_running_processes(settings)
