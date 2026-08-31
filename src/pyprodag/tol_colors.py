@@ -8,6 +8,7 @@ All rights reserved.
 
 License:  Standard 3-clause BSD
 """
+
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap, to_rgba_array
 
