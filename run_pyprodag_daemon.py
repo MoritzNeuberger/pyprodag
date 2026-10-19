@@ -7,7 +7,6 @@ All rights reserved.
 License:  Standard 3-clause BSD
 """
 
-
 import argparse
 import os
 
